@@ -20,7 +20,7 @@ string kangaroo(int x1, int v1, int x2, int v2) {
     return "NO";
 }
 
-int main()
+int main2()
 {
     ofstream fout("C:\\sources\test.txt");
 
