@@ -40,7 +40,7 @@ void countApplesAndOranges(int s, int t, int a, int b, vector<int> apples, vecto
     cout << inApples << endl << inOranges << endl;
 }
 
-int main()
+int main1()
 {
     string st_temp;
     getline(cin, st_temp);
