@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="ApplesAndOranges.cpp" />
     <ClCompile Include="BetweenTwoSets.cpp" />
+    <ClCompile Include="BreakingTheRecords.cpp" />
     <ClCompile Include="NumberLineJumps.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

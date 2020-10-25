@@ -68,7 +68,7 @@ static vector<string> split_string(string input_string) {
 
     return splits;
 }
-int main() 
+int main3() 
 {
     //scan n and m
 	string nm_str;
@@ -97,4 +97,6 @@ int main()
         b[i] = b_item;
     }
     countBetweenTwoSets(n, m, a, b);
+    return 0;
+ 
 }

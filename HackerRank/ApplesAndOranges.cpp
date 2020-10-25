@@ -100,7 +100,7 @@ int main1()
     return 0;
 }
 
-vector<string> split_string(string input_string) {
+static vector<string> split_string(string input_string) {
     string::iterator new_end = unique(input_string.begin(), input_string.end(), [](const char& x, const char& y) {
         return x == y and x == ' ';
         });
