@@ -37,7 +37,7 @@ int birthday(vector<int> s, int d, int m) {
     return result;
 }
 
-int main()
+int main6()
 {
     ofstream fout("c:\\source\\test.txt");
 

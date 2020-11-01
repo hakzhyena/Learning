@@ -22,6 +22,7 @@
     <ClCompile Include="ApplesAndOranges.cpp" />
     <ClCompile Include="BetweenTwoSets.cpp" />
     <ClCompile Include="BreakingTheRecords.cpp" />
+    <ClCompile Include="DivisibleSumPairs.cpp" />
     <ClCompile Include="NumberLineJumps.cpp" />
     <ClCompile Include="TheBirthdayBar.cpp" />
   </ItemGroup>
