@@ -54,5 +54,45 @@ int main()
 	std::cout << v3.back() << std::endl;
 	v3.emplace_back(11);// in place construction
 	std::cout << v3.back() << std::endl;
-
+	v3.insert(v3.begin(), -2); //insert at the location pointed to by iterator, in this case 0 - doesn't mean replace though
+	v3.insert(v3.begin() + 3, 5); // insert at 0 + 3 and right move the elements from 3.
+	v3.insert(v3.end(), 10); //insert at length - meaning v3.end() points to past-the-end because you can't access/deference the size either in static array
+	                         // the usual syntax for traversing is for(int i = 0; i < len; i++) - meaning no accessing arr[i] here either
+	v3.emplace(v3.end(), 100);// same as insert except in place construct
+	v3.erase(v3.end() - 1); // supply the iterator that points to the element to be removed
+	v3.erase(v3.end() - 1); // removed last elements. Note that it's end() - 1 not end(). 
+	size_t size = v3.size(); //size is number of elements in the vector
+	v3.pop_back(); //remove last element
+	v3.clear(); // remove all elements from the vector, but capacity is at previous allocation level
+	size = v3.size(); // now the size is 0
+	size_t capacity = v3.capacity(); //size of currently allocated storage space for the vector in terms of elements
+	size_t max_size = v3.max_size(); // maximum elements vector can hold
+	v3.reserve(200); // Reserve capacity for atleast 200 elements, note that reallocations are costly
+	                 // in terms of performance, use reserve to make single large allocation with
+	                 // keeping max elements in the mind so that frequent reallocations don't need to occur
+	capacity = v3.capacity(); //size of currently allocated storage space for the vector in terms of elements
+	v3.push_back(0);//add few elements
+	v3.push_back(1);//add few more elements
+	v3.shrink_to_fit();//shrink the capacity to size
+	v3.resize(5);//extend size to 5 from 2 - note that remaining 3 elements are zero initialized
+	             // note that resize adds elements and increses size where as reserve updates capacity but no size
+	v3.resize(10, -1); //exten size to 10 - assign remaining elements with -1
+	v3.resize(2); // shrink and keep only initial two elements - remove the remaining - note capacity remains previously allocated
+	v3.clear(); // = v3.resize(0) 
+	if (v3.empty() == (v3.size() == 0)) // note that v3.empty() basically checks v3.size() == 0
+		std::cout << "no elements";
+	v3.reserve(5);
+	for (int i = 0; i < 5; i++) 
+	{
+		v3.push_back(i);
+	}
+	//more convinent loop to iterate through vector
+	std::cout << std::endl;
+	for (const auto& t : v3)
+		std::cout << t << " ";
+	std::cout << std::endl;
+	// random access - O(1)
+	// insertion and removal at end - O(1)
+	// insertion and removal at other places - O(n)
+	// 24 bytes of overhead for storage
 }
