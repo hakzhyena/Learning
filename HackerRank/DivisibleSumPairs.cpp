@@ -26,7 +26,7 @@ int divisibleSumPairs(int n, int k, vector<int> ar) {
     return count;
 }
 
-int main()
+int main7()
 {
     ofstream fout(("c:\\source\\test1.txt"));
 

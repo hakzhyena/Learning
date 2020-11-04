@@ -1,6 +1,6 @@
 #include <iostream>
 #include <array>
-int main() 
+int main2() 
 {
 	//std::array represents arrays of fixed size unlike dynamically sized array of type std::vector
 	//dynamic memory allocation has computational cycle overheads and risks memory fragmentation
@@ -22,7 +22,5 @@ int main()
 		std::cout << "Because size of array is constant";
 	if(arr2.empty())// is kind a self explainatory that since there is no 'resizing' of array invoved
 		std::cout << "Welp, that's weird"; // unles array is sized to be zero like std::array<int,0> a; it's not gonna return false
-
-	
-
+	return 0;
 }
