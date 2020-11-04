@@ -31,7 +31,7 @@ void fun1(int *staticArray, int *toFirstElement)
 		std::cout << "mentioning name of array is as good as address of first element" << std::endl;
 	}
 }
-int main() 
+int main1() 
 {
 	//empty std::vector that holds ints
 	std::vector<int> v1;
@@ -101,4 +101,5 @@ int main()
 	// insertion and removal at end - O(1)
 	// insertion and removal at other places - O(n)
 	// 24 bytes of overhead for storage
+	return 0;
 }
