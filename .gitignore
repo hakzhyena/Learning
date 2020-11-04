@@ -19,3 +19,7 @@
 *.filters
 *.user
 .vs/Learning/v16/.suo
+.vs/Learning/v16/.suo
+.vs/Learning/v16/Solution.VC.db
+StandarLibraryTools/x64/Debug/vector.obj.enc
+.vs/Learning/v16/.suo

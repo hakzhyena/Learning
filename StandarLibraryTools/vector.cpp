@@ -81,7 +81,7 @@ int main()
 	v3.clear(); // = v3.resize(0) 
 	if (v3.empty() == (v3.size() == 0)) // note that v3.empty() basically checks v3.size() == 0
 		std::cout << "no elements";
-	v3.reserve(5);
+	v3.reserve(5);// if you're reserving lesser number than capacity it retains the capacity.
 	for (int i = 0; i < 5; i++) 
 	{
 		v3.push_back(i);
@@ -91,6 +91,12 @@ int main()
 	for (const auto& t : v3)
 		std::cout << t << " ";
 	std::cout << std::endl;
+	
+	std::vector<int> v4;
+	v4.reserve(1);
+	v4.push_back(0);
+	v4.push_back(1); // after reserve if you go overboard, reallocation occurs and so capacity increases
+
 	// random access - O(1)
 	// insertion and removal at end - O(1)
 	// insertion and removal at other places - O(n)
