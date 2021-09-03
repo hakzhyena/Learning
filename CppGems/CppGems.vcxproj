@@ -139,7 +139,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="CppGems.cpp" />
+    <ClCompile Include="Animal.cpp" />
+    <ClCompile Include="Conversion.cpp" />
+    <ClCompile Include="ImplementationDefined.cpp" />
+    <ClCompile Include="InterfacePolymorphism.cpp" />
+    <ClCompile Include="PlainEnums.cpp" />
+    <ClCompile Include="SimpleClass.cpp" />
+    <ClCompile Include="Source.cpp" />
+    <ClCompile Include="StructvsClass.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Animal.h" />
+    <ClInclude Include="CommonHeaders.h" />
+    <ClInclude Include="Conversion.h" />
+    <ClInclude Include="ImplementationDefined.h" />
+    <ClInclude Include="SimpleClass.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

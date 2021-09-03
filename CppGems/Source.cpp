@@ -4,6 +4,7 @@
 #include "StructvsClass.h"
 #include "SimpleClass.h"
 #include "Animal.h"
+#include "Conversion.h"
 void testDefaultMemberAccess() 
 {
     Intro introToBook;
@@ -39,8 +40,13 @@ void constructAndDestrctors()
     std::cout << "d's Name: " << d.getName() << '\t' << "d's sound: " << d.getSound() << std::endl;
     //destruction happens in the reverse order construction
 }
+void numbersAndBitManipulation() 
+{
+    Conversion conversion;
+    conversion.writeBinaryToCout(10);
+}
 int main()
 {
-    constructAndDestrctors();
+    numbersAndBitManipulation();
 
 }
