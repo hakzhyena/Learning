@@ -44,6 +44,9 @@ void numbersAndBitManipulation()
 {
     Conversion conversion;
     conversion.writeBinaryToCout(10);
+    conversion.writeBinaryToCout(2147483649);
+    conversion.writeDecimalToCout("100100");
+    conversion.writeDecimalToCout("1100100");
 }
 int main()
 {
