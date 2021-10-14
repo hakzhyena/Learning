@@ -37,8 +37,3 @@ class Derived3 : public Derived2
     }
 };
 
-int main()
-{
-    Base* p = new Derived3;
-    p->prepare();
-}

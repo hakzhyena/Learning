@@ -143,6 +143,8 @@
     <ClCompile Include="Conversion.cpp" />
     <ClCompile Include="ImplementationDefined.cpp" />
     <ClCompile Include="InterfacePolymorphism.cpp" />
+    <ClCompile Include="MaxValue.cpp" />
+    <ClCompile Include="MMBlockIter.cpp" />
     <ClCompile Include="PlainEnums.cpp" />
     <ClCompile Include="SimpleClass.cpp" />
     <ClCompile Include="Source.cpp" />
@@ -152,6 +154,8 @@
     <ClInclude Include="Animal.h" />
     <ClInclude Include="CommonHeaders.h" />
     <ClInclude Include="Conversion.h" />
+    <ClInclude Include="MaxValue.h" />
+    <ClInclude Include="MMBlockIter.h" />
     <ClInclude Include="ImplementationDefined.h" />
     <ClInclude Include="SimpleClass.h" />
   </ItemGroup>
