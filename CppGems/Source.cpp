@@ -58,6 +58,101 @@ std::vector<std::vector<int>> multipleLeftRotate(std::vector<int>& A, std::vecto
     }
     return C;
 }
+std::vector<int> mulPrevAndNext(std::vector<int> &A)
+{
+    int n = A.size();
+    std::vector<int> output(n);
+    if (n == 1)
+        return A;
+    output[0] = A[0] * A[1];
+    output[n - 1] = A[n - 1] * A[n - 2];
+    for (int i = 1; i < n - 1; i++) 
+    {
+        output[i] = A[i - 1] * A[i + 1];
+    }
+    return output;
+}
+std::vector <std::vector<int>> PascalsTriangle(int A) 
+{
+    std::vector <std::vector<int>> output(A, std::vector<int>(A, 0));
+    output[0][0] = 1;
+    if (A == 1)
+        return  output;
+    output[1][0] = output[1][1] = 1;
+    if (A == 2)
+        return output;
+    for (int i = 2; i < A; i++)
+    {
+        output[i][0] = 1;
+    }
+    for (int i = 2; i < A; i++) 
+    {
+        int j = 1;
+        for (; j < i; j++) 
+        {
+            output[i][j] = output[i - 1][j] + output[i - 1][j - 1];
+        }
+        output[i][j] = 1;
+    }
+    return output;
+}
+
+std::vector < std::vector<int>> genereateSquareSpiralMatrix(int A) 
+{
+    if (A == 0) 
+    {
+        std::vector < std::vector<int>> output;
+        return output;
+    }
+    std::vector < std::vector<int>> output (A,std::vector<int>(A,0));
+    int i = 0, j = 0, dir = 0, currentValue = 1;
+    while (currentValue <= A * A) 
+    {
+        output[i][j] = currentValue;
+        currentValue++;
+        if (dir == 0) 
+        {
+            j++;
+            if (j == A || output[i][j] != 0) 
+            {
+                j--;
+                dir = 1;
+                i++;
+            }
+        }
+        else if (dir == 1) 
+        {
+            i++;
+            if (i == A || output[i][j] != 0) 
+            {
+                i--;
+                dir = 2;
+                j--;
+            }
+        }
+        else if (dir == 2) 
+        {
+            j--;
+            if (j < 0 || output[i][j] != 0) 
+            {
+                j++;
+                dir = 3;
+                i--;
+            }
+        }
+        else if (dir == 3) 
+        {
+            i--;
+            if (i < 0 || output[i][j] != 0)
+            {
+                i++;
+                dir = 0;
+                j++;
+            }
+        }
+    }
+    return output;
+}
 bool isPrime(int input)
 {
     if (input < 2)
@@ -313,9 +408,19 @@ int main()
     //std::vector<int> output = plusOne(A);
     //for (int i = 0; i < output.size(); i++)
     //    std::cout << output[i] << ' ';
-    std::vector<int> A = { 1,2,3,4,5 };
+    /*std::vector<int> A = { 1,2,3,4,5 };
     std::vector<int> B = { 2,3 };
-    multipleLeftRotate(A, B);
+    multipleLeftRotate(A, B);*/
+    std::vector<std::vector<int>> output = genereateSquareSpiralMatrix(5);
+    for (int i = 0; i < output.size(); i++) 
+    {
+        for (int j = 0; j < output[i].size(); j++) 
+        {
+            std::cout << output[i][j] << '\t';
+        }
+        std::cout << std::endl;
+    }
+
 
 }
 std::vector<int> rotate(std::vector<int> &A, int B) 

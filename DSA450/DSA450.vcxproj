@@ -139,7 +139,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Driver.cpp" />
+    <ClCompile Include="MinMax.cpp" />
     <ClCompile Include="ReverseArray.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="headers.h" />
+    <ClInclude Include="MinMax.h" />
+    <ClInclude Include="ReverseArray.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
