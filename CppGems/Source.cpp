@@ -424,23 +424,61 @@ void rotate(std::vector < std::vector<int>>& A)
     transposeMatrix(A);
     columnSwap(A);
 }
+std::vector<std::vector<int>> antiDiagonals(std::vector<std::vector<int>>& A) 
+{
+    int totalRows =  A.size();
+    int totalColumns = totalRows; //square matrix
+    int totalOutputRows = 2 * totalRows - 1;
+    std::vector<std::vector<int>> output(totalOutputRows);
+    //Go through each element
+    for (int i = 0; i < totalRows; i++) 
+    {
+        for (int j = 0; j < totalColumns; j++) 
+        {
+            output[i + j].push_back(A[i][j]);
+        }
+    }
+    for (int i = 0; i < totalOutputRows; i++) 
+    {
+        int toFill = totalColumns - output[i].size() - 1;
+        for (int j = toFill; j > 0; j--) 
+        {
+            output[i].push_back(0);
+        }
+    }
+    return output;
+}
+int maxOnes(std::vector<std::vector<int>> &A) 
+{
+    int totalRows = A.size();
+    int outputRow = 0;
+    if (totalRows == 0)
+        return -1;
+    if (totalRows == 1)
+        return 0;
+    int totalCols = A[0].size();
+    for (int i = 0, j = totalCols - 1; i < totalRows; i++) 
+    {
+        while (A[i][j] == 1)
+        {
+            outputRow = i;
+            j--;
+        }
+        if (j == -1)
+            break;
+    }
+    return outputRow;
+}
 int main()
 {
     
     std::vector<std::vector<int>> A = { 
-        {1,2,3},
-        {4,5,6},
-        {7,8,9}
+        {0,0,0,1},
+        {0,0,0,1},
+        {0,0,0,0},
+        {0,1,1,1}
     };
-    rotate(A);
-    for (int i = 0; i < A.size(); i++) 
-    {
-        for (int j = 0; j < A[i].size(); j++) 
-        {
-            std::cout << A[i][j] << '\t';
-        }
-        std::cout << std::endl;
-    }
+    int rowWithMaxOnes = maxOnes(A);
 
 
 }
