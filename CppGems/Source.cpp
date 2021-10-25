@@ -469,16 +469,44 @@ int maxOnes(std::vector<std::vector<int>> &A)
     }
     return outputRow;
 }
+int FindNumber(std::vector<std::vector<int>>& A, int B) 
+{
+    int totalRows = A.size();
+    if (totalRows == 0)
+        return -1;
+    int totalCols = A[0].size();
+    int i = 0, j = totalCols - 1;
+    while (i < totalRows && j >= 0) 
+    {
+        if (B == A[i][j])
+        {
+            int finalJ = j;
+            j--;
+            while (B == A[i][j]) 
+            {
+                finalJ = j;
+                j--;
+            }
+            return (i + 1) * 1009 + finalJ + 1;
+        }
+            
+        else if (B > A[i][j])
+            i++;
+        else
+            j--;
+    }
+    return -1;
+}
 int main()
 {
     
     std::vector<std::vector<int>> A = { 
-        {0,0,0,1},
-        {0,0,0,1},
-        {0,0,0,0},
-        {0,1,1,1}
+        {1,2,3},
+        {4,5,6},
+        {7,8,9}
+
     };
-    int rowWithMaxOnes = maxOnes(A);
+    int rowWithMaxOnes = FindNumber(A,2);
 
 
 }
