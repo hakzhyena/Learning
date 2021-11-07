@@ -1,5 +1,8 @@
 #include <iostream>
 #include <vector>
+#include <unordered_map>
+#include <algorithm>
+#include <set>
 int countBitsUptoA(int A) {
 	long long result = 0;
 	long long numOfPatternsMultipliedByBits = 0;
@@ -159,8 +162,56 @@ std::vector<std::vector<int>> patternPrinting(int A)
 	}
 	return output;
 }
+
+std::vector<int> repeatingNumbers(std::vector<int>& A, std::vector<int>& B) 
+{
+	std::vector<int>::iterator it1 = A.begin();
+	std::vector<int>::iterator it2 = B.begin();
+	std::vector<int>::iterator itend1 = A.end();
+	std::vector<int>::iterator itend2 = B.end();
+	std::vector<int> result;
+	while (it1 != itend1 && it2 != itend2) 
+	{
+		if (*it1 < *it2)
+		{
+			it1++;
+		}else if(*it1 > *it2) 
+		{
+			it2++;
+		}
+		else
+		{
+			result.push_back(*it1);
+			it1++;
+			it2++;
+		}
+	}
+	return result;
+}
+
+std::vector<int> TwoOutOfThree(std::vector<int>& A, std::vector<int>& B, std::vector<int> &C) 
+{
+	std::sort(A.begin(), A.end());
+	std::sort(B.begin(), B.end());
+	std::sort(C.begin(), C.end());
+	std::vector<int> output1 = repeatingNumbers(A, B);
+	auto v = repeatingNumbers(A, C);
+	output1.insert(output1.end(), v.begin(), v.end());
+	v = repeatingNumbers(B, C);
+	output1.insert(output1.end(), v.begin(), v.end());
+	std::set<int> temp(output1.begin(), output1.end());
+	output1.assign(temp.begin(), temp.end());
+	std::sort(output1.begin(), output1.end());
+	return output1;
+}
+
 int main()
 {
-	patternPrinting(3);
+
+	std::vector<int> A{ 4, 3, 2, 1 };
+	std::vector<int> B{ 5, 6, 7, 8, 9 };
+	std::vector<int> C{ 10, 11, 1 };
+	TwoOutOfThree(A, B, C);
+	return 0;
 
 }
