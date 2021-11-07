@@ -205,13 +205,37 @@ std::vector<int> TwoOutOfThree(std::vector<int>& A, std::vector<int>& B, std::ve
 	return output1;
 }
 
+int KOccurrences(int A, int B, std::vector<int>& C) 
+{
+	std::unordered_map<int, int> occurances;
+	for (int i = 0; i < A; i++) 
+	{
+		occurances[C[i]]++;
+	}
+	std::unordered_map<int, int>::iterator it = occurances.begin();
+	long long sum = 0, output = 0;
+	while (it != occurances.end()) 
+	{
+		if (it->second == B) 
+		{
+			output = 1;
+			sum += it->first;
+		}
+		it++;
+	}
+	if (output == 1)
+		return sum % 1000000007;
+	else
+		return -1;
+
+}
+
 int main()
 {
 
-	std::vector<int> A{ 4, 3, 2, 1 };
-	std::vector<int> B{ 5, 6, 7, 8, 9 };
-	std::vector<int> C{ 10, 11, 1 };
-	TwoOutOfThree(A, B, C);
+	
+	std::vector<int> input{ 0,0,1 };
+	KOccurrences(input.size(), 2, input);
 	return 0;
 
 }
